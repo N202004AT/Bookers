@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get '/' =>'homes#top'
+  root :to  =>'homes#top'
   get '/books' => 'books#index',as: :books
-  get '/books/:id/edit' => 'books#edit'
+  get '/books/:id/edit' => 'books#edit',as: :edit_book
   get '/books/:id' => 'books#show',as: :book
   post '/books' => 'books#create'
-  post '/books/update' => 'books#update'
-  post '/books/:id/destroy' => 'books#destroy'
+  patch '/books/:id' => 'books#update'
+  delete '/books/:id/destroy' => 'books#destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
